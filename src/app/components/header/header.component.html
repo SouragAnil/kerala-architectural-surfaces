@@ -1,0 +1,70 @@
+<header class="header-root">
+  <div class="header-container">
+    <!-- Brand Mark matching screenshot -->
+    <a href="#" class="brand-logo" id="nav-brand-link">
+      <div class="logo-mark-k">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#E2C082" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M5 4v16"/>
+          <path d="M18 5L7 12l11 7"/>
+        </svg>
+      </div>
+      <div class="logo-text-group">
+        <span class="brand-line-1 font-sans">KERALA</span>
+        <span class="brand-line-2 font-sans">ARCHITECTURAL</span>
+        <span class="brand-line-3 font-sans">SURFACES</span>
+      </div>
+    </a>
+
+    <!-- Center Navigation matching screenshot -->
+    <nav class="desktop-nav">
+      <button type="button" class="nav-link active-link" (click)="scrollTo('interactive-collections')">Home</button>
+      <button type="button" class="nav-link" (click)="scrollTo('anatomy-section')">About</button>
+      <button type="button" class="nav-link" (click)="scrollTo('textures-section')">Products</button>
+      <button type="button" class="nav-link" (click)="scrollTo('spaces-section')">Projects</button>
+      <button type="button" class="nav-link" (click)="scrollTo('lab-section')">Blogs</button>
+      <button type="button" class="nav-link" (click)="cartService.openCart()">Contact</button>
+    </nav>
+
+    <!-- Header Actions with Contact Button -->
+    <div class="header-actions">
+      <!-- Ambient Acoustic Toggle -->
+      <button 
+        type="button" 
+        class="sound-toggle-btn" 
+        id="sound-toggle-btn"
+        (click)="onSoundToggle()" 
+        [title]="audioService.isMuted() ? 'Unmute tactile sound' : 'Mute tactile sound'">
+        @if (audioService.isMuted()) {
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+            <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+            <line x1="23" y1="9" x2="17" y2="15"></line>
+            <line x1="17" y1="9" x2="23" y2="15"></line>
+          </svg>
+        } @else {
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+            <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+            <path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"></path>
+          </svg>
+        }
+      </button>
+
+      <!-- Sample Box Cart Drawer Button -->
+      <button 
+        type="button" 
+        class="sample-pill-btn" 
+        id="sample-cart-btn"
+        (click)="cartService.openCart()">
+        <span>Sample Kit ({{ cartService.selectedCount() }}/3)</span>
+      </button>
+
+      <!-- Gold Pill Contact Button matching screenshot -->
+      <button 
+        type="button" 
+        class="btn-gold-pill" 
+        id="header-contact-btn"
+        (click)="cartService.openCart()">
+        <span>Contact Us</span>
+      </button>
+    </div>
+  </div>
+</header>

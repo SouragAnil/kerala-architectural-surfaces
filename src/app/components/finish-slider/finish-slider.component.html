@@ -1,0 +1,102 @@
+<section class="finish-section" id="textures-section">
+  <div class="finish-container">
+    <div class="section-header">
+      <div class="tag-pill">
+        <span>THREE CORE DISCIPLINES</span>
+      </div>
+      <h2 class="section-title font-serif">
+        TACTILE ARCHITECTURAL <span class="gold-text-shimmer">TECHNIQUES</span>
+      </h2>
+      <p class="section-subtitle">
+        We specialize in three signature wall disciplines: <strong>Marble Texture Painting</strong>, 
+        <strong>Cement Texture Painting</strong>, and <strong>Line Brush Painting</strong>. Select a technique below and drag the tool to compare tactile surface variations.
+      </p>
+
+      <!-- 3 Disciplines Tabs -->
+      <div class="discipline-tabs-row">
+        @for (pair of pairs; track pair.discipline; let idx = $index) {
+          <button 
+            type="button" 
+            class="discipline-tab-btn" 
+            [class.active-tab]="activePairIndex() === idx" 
+            (click)="selectDiscipline(idx)">
+            {{ pair.tabTitle }}
+          </button>
+        }
+      </div>
+    </div>
+
+    <!-- Active Comparison Stage -->
+    @let active = pairs[activePairIndex()];
+    <div class="slider-wrapper" #containerRef (mousedown)="onMouseDown($event)" (touchstart)="onTouchStart($event)" (touchmove)="onTouchMove($event)" (touchend)="onTouchEnd()">
+      <!-- Layer 1: Right Side (Base) -->
+      <div class="layer-base">
+        <img [src]="active.rightImage" [alt]="active.rightTitle" class="slider-image" />
+        <div class="layer-badge badge-right">
+          <span class="badge-title font-serif">{{ active.rightTitle }}</span>
+          <span class="badge-sub">{{ active.rightSub }}</span>
+        </div>
+      </div>
+
+      <!-- Layer 2: Left Side (Overlay) -->
+      <div class="layer-overlay" [style.width.%]="splitPercent()">
+        <img [src]="active.leftImage" [alt]="active.leftTitle" class="slider-image" />
+        <div class="layer-badge badge-left">
+          <span class="badge-title font-serif">{{ active.leftTitle }}</span>
+          <span class="badge-sub">{{ active.leftSub }}</span>
+        </div>
+      </div>
+
+      <!-- Draggable Divider Tool -->
+      <div class="trowel-divider" [style.left.%]="splitPercent()">
+        <div class="divider-line"></div>
+        <div class="trowel-handle" title="Drag to compare technique textures">
+          <div class="trowel-blade-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#E2C082" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="15 18 9 12 15 6"></polyline>
+              <polyline points="9 18 15 12 9 6" transform="translate(6, 0)"></polyline>
+            </svg>
+          </div>
+          <span class="trowel-tag">{{ active.toolName }}</span>
+        </div>
+      </div>
+
+      <!-- Accessible Range Input -->
+      <input 
+        type="range" 
+        min="5" 
+        max="95" 
+        [value]="splitPercent()" 
+        (input)="onRangeInput($event)"
+        class="sr-range-input" 
+        [attr.aria-label]="'Compare ' + active.leftTitle + ' and ' + active.rightTitle" />
+    </div>
+
+    <!-- Technical Comparison Spec Cards -->
+    <div class="specs-comparison-grid">
+      <div class="spec-card">
+        <div class="spec-card-header">
+          <span class="spec-icon">&#9671;</span>
+          <h4 class="font-serif">{{ active.leftSpecs.title }}</h4>
+        </div>
+        <ul class="spec-list">
+          @for (item of active.leftSpecs.items; track item) {
+            <li>{{ item }}</li>
+          }
+        </ul>
+      </div>
+
+      <div class="spec-card spec-card-gold">
+        <div class="spec-card-header">
+          <span class="spec-icon">&#10022;</span>
+          <h4 class="font-serif">{{ active.rightSpecs.title }}</h4>
+        </div>
+        <ul class="spec-list">
+          @for (item of active.rightSpecs.items; track item) {
+            <li>{{ item }}</li>
+          }
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>

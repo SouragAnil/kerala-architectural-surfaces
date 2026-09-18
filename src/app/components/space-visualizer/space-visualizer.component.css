@@ -1,0 +1,267 @@
+.spaces-section {
+  padding: 7rem 2.5rem;
+  background: #08090c;
+  position: relative;
+}
+
+.spaces-container {
+  max-width: 1380px;
+  margin: 0 auto;
+}
+
+.section-intro {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 1.2rem;
+  margin-bottom: 3.5rem;
+}
+
+.section-title {
+  font-size: clamp(2.2rem, 4vw, 3.4rem);
+  font-weight: 700;
+  color: #fff;
+  letter-spacing: 0.03em;
+}
+
+.section-subtitle {
+  max-width: 680px;
+  color: var(--text-secondary);
+  font-size: 1.05rem;
+  line-height: 1.7;
+}
+
+.spaces-tabs {
+  display: flex;
+  gap: 0.8rem;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 0.8rem;
+}
+
+.space-tab-btn {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: var(--text-secondary);
+  padding: 0.6rem 1.4rem;
+  border-radius: 999px;
+  font-family: var(--font-sans);
+  font-size: 0.78rem;
+  letter-spacing: 0.08em;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.space-tab-btn:hover {
+  border-color: var(--accent-gold);
+  color: #fff;
+}
+
+.space-tab-btn.tab-active {
+  background: rgba(201, 168, 106, 0.18);
+  border-color: var(--accent-gold);
+  color: var(--accent-gold-light);
+  font-weight: 600;
+}
+
+/* Space Showcase Layout */
+.space-showcase-card {
+  display: grid;
+  grid-template-columns: 1.6fr 1fr;
+  gap: 2.5rem;
+  align-items: center;
+}
+
+.space-visual-frame {
+  position: relative;
+  height: 540px;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.7), 0 0 0 1px rgba(255, 255, 255, 0.1);
+}
+
+.space-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: filter 0.8s ease, transform 0.8s ease;
+}
+
+.lighting-overlay {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  transition: background 0.8s ease;
+}
+
+/* Day vs Evening Lighting Simulation */
+.space-visual-frame.evening-lighting .space-img {
+  filter: brightness(0.88) contrast(1.1);
+}
+
+.space-visual-frame.evening-lighting .lighting-overlay {
+  background: radial-gradient(circle at 70% 30%, rgba(240, 180, 90, 0.28) 0%, rgba(20, 10, 5, 0.4) 100%);
+  mix-blend-mode: color-dodge;
+}
+
+.lighting-switch-bar {
+  position: absolute;
+  bottom: 1.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.5rem 1.2rem;
+  border-radius: 999px;
+  border-color: rgba(255, 255, 255, 0.15);
+}
+
+.lighting-label {
+  font-size: 0.65rem;
+  letter-spacing: 0.14em;
+  color: var(--text-muted);
+  font-weight: 700;
+}
+
+.lighting-btn {
+  background: transparent;
+  border: 1px solid transparent;
+  padding: 0.35rem 0.8rem;
+  border-radius: 999px;
+  font-size: 0.72rem;
+  color: var(--text-secondary);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-family: var(--font-sans);
+}
+
+.lighting-btn:hover {
+  color: #fff;
+}
+
+.lighting-btn.active-mode {
+  background: rgba(201, 168, 106, 0.2);
+  border-color: var(--accent-gold);
+  color: var(--accent-gold-light);
+  font-weight: 600;
+}
+
+/* Meta Panel */
+.space-meta-panel {
+  padding: 2.8rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.3rem;
+  border-color: rgba(201, 168, 106, 0.2);
+}
+
+.space-meta-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.meta-location {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.78rem;
+  color: var(--accent-gold-light);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.loc-pin {
+  font-size: 1rem;
+}
+
+.meta-sqm {
+  font-size: 0.72rem;
+  padding: 0.25rem 0.6rem;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 6px;
+  color: var(--text-muted);
+}
+
+.space-project-name {
+  font-size: 1.8rem;
+  color: #fff;
+  line-height: 1.2;
+}
+
+.space-architect {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  margin-top: -0.5rem;
+}
+
+.space-architect strong {
+  color: var(--text-secondary);
+}
+
+.space-desc {
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+.finish-callout {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  padding: 1.1rem;
+  background: rgba(201, 168, 106, 0.06);
+  border-left: 3px solid var(--accent-gold);
+  border-radius: 8px;
+}
+
+.finish-label {
+  font-size: 0.65rem;
+  letter-spacing: 0.16em;
+  color: var(--accent-gold-light);
+  font-weight: 700;
+}
+
+.finish-val {
+  font-size: 1.1rem;
+  color: #fff;
+  font-weight: 600;
+}
+
+.monsoon-note-badge {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  padding: 1.1rem;
+  background: rgba(37, 120, 93, 0.08);
+  border-left: 3px solid #25785d;
+  border-radius: 8px;
+}
+
+.monsoon-tag {
+  font-size: 0.65rem;
+  letter-spacing: 0.14em;
+  color: #6ee7b7;
+  font-weight: 700;
+}
+
+.monsoon-text {
+  font-size: 0.82rem;
+  color: #d1fae5;
+  line-height: 1.45;
+}
+
+.space-actions {
+  margin-top: 0.5rem;
+}
+
+@media (max-width: 960px) {
+  .space-showcase-card {
+    grid-template-columns: 1fr;
+  }
+  .space-visual-frame {
+    height: 380px;
+  }
+}

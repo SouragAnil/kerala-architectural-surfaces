@@ -1,0 +1,87 @@
+<section class="triptych-master-section" id="disciplines-section">
+  <div class="triptych-container">
+    <div class="triptych-preamble">
+      <div class="editorial-kicker">
+        <span>THE ARCHITECTURAL TRIPTYCH</span>
+      </div>
+      <h2 class="preamble-heading font-serif">
+        THREE MASTER SURFACE DISCIPLINES.
+      </h2>
+      <p class="preamble-lead font-sans">
+        Unlike standard commercial emulsion paints which form a 0.05 mm plastic film, our studio builds 
+        structural mineral veneers engineered to fuse chemically with masonry and withstand Kerala's humid tropical seasons.
+      </p>
+    </div>
+
+    <!-- The 3 Full-Spread Chapters -->
+    <div class="chapters-stack">
+      @for (chap of chapters; track chap.id) {
+        <article class="chapter-spread" [id]="chap.id">
+          <!-- Chapter Editorial Header -->
+          <div class="chapter-meta-top">
+            <div class="chapter-number font-num">{{ chap.number }}</div>
+            <div class="chapter-title-group">
+              <span class="chapter-discipline-tag font-num">{{ chap.subtitle }}</span>
+              <h3 class="chapter-main-title font-heading">{{ chap.title }}</h3>
+            </div>
+            <p class="chapter-quote font-serif">
+              "{{ chap.quote }}"
+            </p>
+          </div>
+
+          <!-- Dual Architectural Spread (Wide Space + Macro Detail) -->
+          <div class="chapter-imagery-spread">
+            <!-- Left: Major Built Project Space -->
+            <div class="imagery-hero-frame">
+              <img [src]="chap.primaryImage" [alt]="chap.title + ' in Built Kerala Architecture'" class="spread-img" />
+              <div class="frame-tag font-num">ARCHITECTURAL MONOGRAPH REFERENCE</div>
+            </div>
+
+            <!-- Right: Extreme Macro Texture Specimen -->
+            <div class="imagery-macro-frame">
+              <img [src]="chap.macroImage" [alt]="chap.title + ' Macro Texture'" class="spread-img" />
+              <div class="frame-tag font-num">MACRO TACTILE SPECIMEN</div>
+            </div>
+          </div>
+
+          <!-- Swiss Technical Specification Footer Bar -->
+          <div class="chapter-spec-bar">
+            <div class="spec-cell">
+              <span class="spec-label font-num">01 / MOLECULAR MATRIX</span>
+              <span class="spec-value">{{ chap.composition }}</span>
+            </div>
+
+            <div class="spec-cell">
+              <span class="spec-label font-num">02 / SPECULAR SHEEN</span>
+              <span class="spec-value font-num">{{ chap.sheenRating }}</span>
+            </div>
+
+            <div class="spec-cell">
+              <span class="spec-label font-num">03 / STRUCTURAL THICKNESS</span>
+              <span class="spec-value font-num">{{ chap.thickness }}</span>
+            </div>
+
+            <div class="spec-cell">
+              <span class="spec-label font-num">04 / TROPICAL MONSOON RESILIENCE</span>
+              <span class="spec-value">{{ chap.tropicalResilience }}</span>
+            </div>
+
+            <div class="spec-action-cell">
+              <button 
+                type="button" 
+                class="btn-specimen-add" 
+                [class.in-kit]="isInBox(chap)"
+                (click)="addSampleToBox(chap)">
+                @if (isInBox(chap)) {
+                  <span>&#10003; In Sample Kit</span>
+                } @else {
+                  <span>+ Add to Sample Kit</span>
+                }
+              </button>
+            </div>
+          </div>
+        </article>
+      }
+    </div>
+  </div>
+</section>

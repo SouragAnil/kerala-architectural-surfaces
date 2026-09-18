@@ -1,0 +1,160 @@
+@if (cartService.isCartOpen()) {
+  <div class="cart-backdrop" (click)="close()">
+    <div class="cart-drawer glass-panel" (click)="$event.stopPropagation()">
+      <!-- Drawer Header -->
+      <div class="drawer-header">
+        <div class="drawer-titles">
+          <span class="drawer-tag">KERALA ATELIER DISPATCH</span>
+          <h2 class="drawer-title font-serif">ARTISANAL SAMPLE BOX</h2>
+        </div>
+        <button type="button" class="drawer-close-btn" id="close-drawer-btn" (click)="close()">&times;</button>
+      </div>
+
+      @if (!orderSuccess()) {
+        <div class="drawer-body">
+          <!-- Walnut Box Visual Banner -->
+          <div class="box-preview-banner">
+            <img src="/assets/sample_slabs.jpg" alt="Artisanal Walnut Sample Presentation Box" class="box-banner-img" />
+            <div class="banner-gradient"></div>
+            <div class="banner-text">
+              <span class="banner-box-label font-serif">Solid Walnut Presentation Kit</span>
+              <span class="banner-sub">Three 15x30cm Hand-Troweled Real Stone & Plaster Specimens</span>
+            </div>
+          </div>
+
+          <!-- Slots (1 to 3) -->
+          <div class="slots-container">
+            <div class="slots-header">
+              <span class="slots-label">CURATED SPECIMENS ({{ cartService.selectedCount() }}/{{ cartService.maxSamples }} SLOTS FILLED):</span>
+            </div>
+
+            <div class="slots-list">
+              @for (item of cartService.selectedSamples(); track item.id; let idx = $index) {
+                <div class="tile-slot-item">
+                  <div class="tile-thumb-wrap">
+                    <img [src]="item.image" [alt]="item.name" class="tile-thumb" />
+                    <span class="slot-idx font-serif">0{{ idx + 1 }}</span>
+                  </div>
+
+                  <div class="tile-details">
+                    <h4 class="tile-name font-serif">{{ item.name }}</h4>
+                    <span class="tile-meta">{{ item.disciplineLabel }} &bull; {{ item.origin }}</span>
+                  </div>
+
+                  <button type="button" class="tile-remove-btn" (click)="removeTile(item)" title="Remove this tile">
+                    &times;
+                  </button>
+                </div>
+              }
+
+              <!-- Empty Slots Placeholder -->
+              @if (cartService.canAddMore()) {
+                <div class="empty-slot-placeholder" (click)="close()">
+                  <span class="plus-icon">+</span>
+                  <span>Empty Slot — Select another formula from the collection</span>
+                </div>
+              }
+            </div>
+          </div>
+
+          <!-- Trade Verification Toggle -->
+          <div class="trade-toggle-card">
+            <div class="toggle-options">
+              <button 
+                type="button" 
+                class="account-type-btn" 
+                [class.active-acc]="isTradeAccount()"
+                (click)="setAccountType(true)">
+                <span class="acc-title">Registered Architect / Designer</span>
+                <span class="acc-price">Complimentary Kerala Courier</span>
+              </button>
+              <button 
+                type="button" 
+                class="account-type-btn" 
+                [class.active-acc]="!isTradeAccount()"
+                (click)="setAccountType(false)">
+                <span class="acc-title">Private Homeowner / Villa Client</span>
+                <span class="acc-price">₹1,500 (Refundable against site order)</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- Dispatch Form -->
+          <form class="order-form" (ngSubmit)="submitOrder()">
+            <div class="form-row">
+              <div class="form-field">
+                <label>Architect / Client Name</label>
+                <input type="text" name="name" [(ngModel)]="formData.name" required />
+              </div>
+              <div class="form-field">
+                <label>Studio or Firm Name</label>
+                <input type="text" name="studio" [(ngModel)]="formData.studio" required />
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-field">
+                <label>Phone / WhatsApp Number</label>
+                <input type="tel" name="phone" [(ngModel)]="formData.phone" required />
+              </div>
+              <div class="form-field">
+                <label>Direct Email Address</label>
+                <input type="email" name="email" [(ngModel)]="formData.email" required />
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-field">
+                <label>Kerala Location / City</label>
+                <input type="text" name="city" [(ngModel)]="formData.city" placeholder="Kochi, Calicut, Trivandrum..." required />
+              </div>
+              <div class="form-field">
+                <label>Project Typology & Estimated Area</label>
+                <input type="text" name="projectType" [(ngModel)]="formData.projectType" required />
+              </div>
+            </div>
+
+            <div class="form-field">
+              <label>Kerala Delivery / Site Address</label>
+              <textarea name="address" rows="2" [(ngModel)]="formData.address" required></textarea>
+            </div>
+
+            <button 
+              type="submit" 
+              class="btn-gold submit-order-btn" 
+              id="submit-sample-order-btn"
+              [disabled]="cartService.selectedCount() === 0">
+              <span>Dispatch Sample Box & Book Site Assessment</span>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <line x1="5" y1="12" x2="19" y2="12"></line>
+                <polyline points="12 5 19 12 12 19"></polyline>
+              </svg>
+            </button>
+          </form>
+        </div>
+      } @else {
+        <!-- Order Confirmed View -->
+        <div class="order-success-view">
+          <div class="success-icon-wrap">
+            <svg width="42" height="42" viewBox="0 0 24 24" fill="none" stroke="#E2C082" stroke-width="2">
+              <polyline points="20 6 9 17 4 12"></polyline>
+            </svg>
+          </div>
+          <span class="success-tag">DISPATCH & SITE VISIT BOOKED</span>
+          <h3 class="success-title font-serif">Aluva Atelier Queued</h3>
+          <p class="success-desc">
+            Your customized three-specimen presentation kit has been queued at our central Aluva blending laboratory. 
+            Our Kerala technical director will contact you via WhatsApp (+91 98470 82910) to confirm your delivery address and schedule an on-site surface assessment.
+          </p>
+          <div class="reference-box">
+            <span class="ref-label">KERALA DISPATCH REFERENCE</span>
+            <span class="ref-code font-serif">{{ orderReference() }}</span>
+          </div>
+          <button type="button" class="btn-outline" (click)="close()">
+            Return to Studio
+          </button>
+        </div>
+      }
+    </div>
+  </div>
+}

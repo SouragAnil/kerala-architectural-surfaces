@@ -1,0 +1,84 @@
+<section class="dissection-section" id="anatomy-section">
+  <div class="dissection-container">
+    <div class="section-intro">
+      <div class="tag-pill tag-pill-emerald">
+        <span>MINERAL ANATOMY</span>
+      </div>
+      <h2 class="section-title font-serif">
+        THE 4-STRATA <span class="gold-text-shimmer">DISSECTION</span>
+      </h2>
+      <p class="section-subtitle">
+        Unlike standard emulsion paints which form a 0.05 mm plastic film, Marmoris builds a 1.4 mm structural stone veneer. 
+        Explore each layer in the microscopic cross-section below.
+      </p>
+    </div>
+
+    <!-- Interactive Layer Stage -->
+    <div class="dissection-interactive-layout">
+      <!-- Left Column: 3D Layer Stack -->
+      <div class="layer-stack-visualizer">
+        <div class="strata-3d-wrapper">
+          @for (layer of layers; track layer.index; let idx = $index) {
+            <div 
+              class="strata-slice" 
+              [class.slice-active]="activeLayerIndex() === idx"
+              [style.background]="layer.gradientBg"
+              [style.borderColor]="layer.borderTone"
+              (click)="selectLayer(idx)">
+              <div class="slice-inner">
+                <span class="slice-number font-serif">{{ layer.index }}</span>
+                <div class="slice-meta">
+                  <span class="slice-name font-serif">{{ layer.name }}</span>
+                  <span class="slice-depth">{{ layer.depth }} &bull; {{ layer.scientificRole }}</span>
+                </div>
+                <span class="slice-arrow">&#8594;</span>
+              </div>
+            </div>
+          }
+        </div>
+        <div class="stack-base-label">
+          <span class="wall-substrate font-serif">SUBSTRATE: REINFORCED ARCHITECTURAL WALL</span>
+        </div>
+      </div>
+
+      <!-- Right Column: Scientific Specification Display of Selected Layer -->
+      <div class="layer-details-panel glass-panel">
+        @let current = layers[activeLayerIndex()];
+        <div class="panel-header">
+          <div class="panel-step font-serif">LAYER {{ current.index }} OF 04</div>
+          <span class="panel-depth-badge">{{ current.depth }} Veneer Depth</span>
+        </div>
+
+        <h3 class="panel-title font-serif">{{ current.name }}</h3>
+        <div class="panel-role">{{ current.scientificRole }}</div>
+
+        <div class="panel-content-block">
+          <div class="content-item">
+            <span class="content-label">MOLECULAR COMPOSITION</span>
+            <p class="content-value">{{ current.composition }}</p>
+          </div>
+
+          <div class="content-item">
+            <span class="content-label">GEOLOGICAL PERFORMANCE</span>
+            <p class="content-value">{{ current.keyFeature }}</p>
+          </div>
+        </div>
+
+        <div class="panel-stats-row">
+          <div class="stat-pill">
+            <span class="stat-val font-serif">A1</span>
+            <span class="stat-tag">Non-Combustible Fire Class</span>
+          </div>
+          <div class="stat-pill">
+            <span class="stat-val font-serif">&mu; &lt; 15</span>
+            <span class="stat-tag">High Vapour Breathability</span>
+          </div>
+          <div class="stat-pill">
+            <span class="stat-val font-serif">100 Yrs</span>
+            <span class="stat-tag">Calcified Lifespan</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

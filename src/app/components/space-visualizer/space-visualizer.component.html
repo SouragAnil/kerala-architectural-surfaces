@@ -1,0 +1,90 @@
+<section class="spaces-section" id="spaces-section">
+  <div class="spaces-container">
+    <div class="section-intro">
+      <div class="tag-pill">
+        <span>BUILT ARCHITECTURE IN KERALA</span>
+      </div>
+      <h2 class="section-title font-serif">
+        TRANSFORMING <span class="gold-text-shimmer">KERALA SANCTUARIES</span>
+      </h2>
+      <p class="section-subtitle">
+        Explore our completed architectural surface works across tropical modern villas, penthouses, 
+        and courtyard residences in <strong>Kochi</strong>, <strong>Calicut</strong>, and <strong>Trivandrum</strong>.
+      </p>
+
+      <!-- Space Selector Tabs -->
+      <div class="spaces-tabs">
+        @for (space of spaces; track space.id) {
+          <button 
+            type="button" 
+            class="space-tab-btn" 
+            [class.tab-active]="activeSpace().id === space.id"
+            (click)="selectSpace(space)">
+            {{ space.name }}
+          </button>
+        }
+      </div>
+    </div>
+
+    <!-- Active Space Showcase -->
+    @let s = activeSpace();
+    <div class="space-showcase-card">
+      <div class="space-visual-frame" [class.evening-lighting]="lightingMode() === 'evening'">
+        <img [src]="s.image" [alt]="s.name" class="space-img" />
+        
+        <!-- Interactive Lighting Filter Overlay -->
+        <div class="lighting-overlay"></div>
+
+        <!-- Floating Lighting Toggle Bar -->
+        <div class="lighting-switch-bar glass-panel">
+          <span class="lighting-label">ATMOSPHERIC LIGHTING:</span>
+          <button 
+            type="button" 
+            class="lighting-btn" 
+            [class.active-mode]="lightingMode() === 'day'"
+            (click)="lightingMode.set('day')">
+            &#9728; 5000K Tropical Daylight
+          </button>
+          <button 
+            type="button" 
+            class="lighting-btn" 
+            [class.active-mode]="lightingMode() === 'evening'"
+            (click)="lightingMode.set('evening')">
+            &#9790; 2700K Warm Kerala Evening
+          </button>
+        </div>
+      </div>
+
+      <!-- Architectural Meta Information -->
+      <div class="space-meta-panel glass-panel">
+        <div class="space-meta-top">
+          <div class="meta-location">
+            <span class="loc-pin">&#9906;</span>
+            <span>{{ s.location }}</span>
+          </div>
+          <span class="meta-sqm">{{ s.sqft }}</span>
+        </div>
+
+        <h3 class="space-project-name font-serif">{{ s.name }}</h3>
+        <p class="space-architect">Architectural Collaboration: <strong>{{ s.architect }}</strong></p>
+        <p class="space-desc">{{ s.description }}</p>
+
+        <div class="finish-callout">
+          <span class="finish-label">SURFACE TECHNIQUE SPECIFIED:</span>
+          <span class="finish-val font-serif">{{ s.finishUsed }}</span>
+        </div>
+
+        <div class="monsoon-note-badge">
+          <span class="monsoon-tag">&#9748; MONSOON-PROOF ENGINEERING:</span>
+          <p class="monsoon-text">{{ s.monsoonProofNote }}</p>
+        </div>
+
+        <div class="space-actions">
+          <button type="button" class="btn-gold" (click)="cartService.openCart()">
+            Request Kerala Site Consultation & Samples
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

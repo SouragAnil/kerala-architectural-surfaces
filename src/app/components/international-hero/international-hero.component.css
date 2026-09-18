@@ -1,0 +1,169 @@
+.intl-hero-section {
+  position: relative;
+  width: 100vw;
+  min-height: 100vh;
+  display: flex;
+  align-items: flex-end;
+  background-color: #060708;
+  overflow: hidden;
+}
+
+.hero-media-wrapper {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+}
+
+.hero-bg-media {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transform: scale(1.02);
+  transition: transform 1.6s var(--ease-out-expo);
+}
+
+.intl-hero-section:hover .hero-bg-media {
+  transform: scale(1.04);
+}
+
+.hero-dark-scrim {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(6, 7, 8, 0.45) 0%, rgba(6, 7, 8, 0.2) 40%, rgba(6, 7, 8, 0.95) 100%);
+}
+
+.geo-coord {
+  position: absolute;
+  top: 6.5rem;
+  right: 3rem;
+  font-size: 0.72rem;
+  letter-spacing: 0.16em;
+  color: rgba(255, 255, 255, 0.6);
+  z-index: 3;
+}
+
+.hero-editorial-container {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 8rem 3rem 4.5rem 3rem;
+  display: flex;
+  flex-direction: column;
+  gap: 3.5rem;
+}
+
+.hero-header-block {
+  max-width: 920px;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.hero-monograph-title {
+  font-size: clamp(3rem, 6.2vw, 5.8rem);
+  font-weight: 400;
+  line-height: 1.05;
+  color: #ffffff;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.hero-prose {
+  font-size: clamp(1rem, 1.25vw, 1.25rem);
+  line-height: 1.7;
+  color: var(--text-secondary);
+  max-width: 740px;
+  font-weight: 300;
+}
+
+.hero-prose strong {
+  color: #ffffff;
+  font-weight: 500;
+}
+
+/* Disciplines 3-Column Monograph Bar */
+.disciplines-monograph-bar {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1px;
+  background: var(--border-hairline);
+  border: 1px solid var(--border-hairline);
+  border-radius: 2px;
+  backdrop-filter: blur(16px);
+}
+
+.disc-column {
+  padding: 1.8rem 2.2rem;
+  background: rgba(12, 14, 18, 0.85);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.disc-column:hover {
+  background: rgba(26, 30, 38, 0.95);
+  border-color: var(--accent-bronze);
+}
+
+.disc-num {
+  font-size: 1.1rem;
+  color: var(--accent-bronze-light);
+  font-weight: 500;
+}
+
+.disc-info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  flex: 1;
+  padding-left: 1.2rem;
+}
+
+.disc-heading {
+  font-size: 0.95rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: #ffffff;
+}
+
+.disc-sub {
+  font-size: 0.72rem;
+  color: var(--text-muted);
+}
+
+.disc-arrow {
+  color: var(--accent-bronze);
+  font-size: 1.1rem;
+  transition: transform 0.3s ease;
+}
+
+.disc-column:hover .disc-arrow {
+  transform: translateY(4px);
+}
+
+.hero-actions-strip {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+
+@media (max-width: 1024px) {
+  .disciplines-monograph-bar {
+    grid-template-columns: 1fr;
+  }
+  .geo-coord {
+    display: none;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero-editorial-container {
+    padding: 6rem 1.5rem 3rem 1.5rem;
+    gap: 2.5rem;
+  }
+}

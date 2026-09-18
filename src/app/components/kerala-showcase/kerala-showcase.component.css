@@ -1,0 +1,556 @@
+.kerala-blueprint-root {
+  width: 100%;
+  max-width: 1480px;
+  margin: 0 auto;
+  padding: 6.5rem 2rem 4rem 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2.2rem;
+}
+
+/* ========================================================================= */
+/* 1. HERO CARD                                                             */
+/* ========================================================================= */
+.blueprint-hero-card {
+  position: relative;
+  width: 100%;
+  min-height: 640px;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 24px 70px rgba(0, 0, 0, 0.7), 0 0 0 1px rgba(255, 255, 255, 0.1);
+  display: flex;
+  align-items: flex-end;
+}
+
+.hero-bg-frame {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+}
+
+.hero-bg-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.blueprint-hero-card:hover .hero-bg-img {
+  transform: scale(1.03);
+}
+
+.hero-vignette-gradient {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(8, 9, 11, 0.25) 0%, rgba(8, 9, 11, 0.15) 30%, rgba(8, 9, 11, 0.92) 100%);
+}
+
+.location-watermark {
+  position: absolute;
+  bottom: 1.8rem;
+  right: 2.2rem;
+  font-size: 0.85rem;
+  font-style: italic;
+  color: rgba(255, 255, 255, 0.7);
+  letter-spacing: 0.04em;
+  z-index: 3;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.8);
+}
+
+.hero-content-overlay {
+  position: relative;
+  z-index: 2;
+  padding: 4rem 3.5rem;
+  max-width: 860px;
+  display: flex;
+  flex-direction: column;
+  gap: 1.4rem;
+}
+
+.hero-badge-tag {
+  display: inline-flex;
+  padding: 0.35rem 0.9rem;
+  background: rgba(201, 168, 106, 0.18);
+  border: 1px solid rgba(201, 168, 106, 0.4);
+  border-radius: 999px;
+  color: var(--accent-gold-light);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  width: fit-content;
+}
+
+.hero-grand-title {
+  font-size: clamp(2.2rem, 3.8vw, 3.6rem);
+  font-weight: 800;
+  line-height: 1.15;
+  color: #ffffff;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  text-shadow: 0 4px 16px rgba(0, 0, 0, 0.7);
+}
+
+.hero-subtitle {
+  font-size: 1.15rem;
+  color: #e2dfd7;
+  line-height: 1.6;
+  max-width: 680px;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.8);
+}
+
+.hero-subtitle strong {
+  color: var(--accent-gold-light);
+}
+
+.hero-action-buttons {
+  display: flex;
+  gap: 1.2rem;
+  margin-top: 0.6rem;
+  flex-wrap: wrap;
+}
+
+/* ========================================================================= */
+/* 2. TWO-COLUMN ROW (Collections A-D & Kochi Atrium)                        */
+/* ========================================================================= */
+.blueprint-two-col {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2.2rem;
+}
+
+/* Exclusive Collections Panel */
+.exclusive-collections-panel {
+  padding: 2.6rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 2rem;
+  border-radius: 20px;
+  background: rgba(14, 17, 22, 0.85);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6);
+}
+
+.panel-header-strip {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  border-bottom: 1px solid var(--border-subtle);
+  padding-bottom: 1.2rem;
+}
+
+.panel-title {
+  font-size: 1.45rem;
+  font-weight: 800;
+  color: #ffffff;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.panel-sub-label {
+  font-size: 0.68rem;
+  letter-spacing: 0.16em;
+  color: var(--accent-gold-light);
+  font-weight: 700;
+}
+
+.swatches-quad-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.6rem;
+}
+
+.swatch-quad-card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+}
+
+.swatch-img-box {
+  position: relative;
+  height: 140px;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.swatch-quad-card:hover .swatch-img-box {
+  transform: translateY(-3px);
+  border-color: var(--accent-gold);
+}
+
+.quad-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.letter-badge {
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  width: 24px;
+  height: 24px;
+  background: rgba(10, 12, 16, 0.85);
+  border: 1px solid rgba(201, 168, 106, 0.5);
+  color: var(--accent-gold-light);
+  font-weight: 700;
+  font-size: 0.76rem;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.swatch-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
+.swatch-title {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: #ffffff;
+  line-height: 1.35;
+}
+
+.swatch-spec {
+  font-size: 0.72rem;
+  color: var(--text-muted);
+  line-height: 1.4;
+}
+
+.collections-action-bar {
+  border-top: 1px solid var(--border-subtle);
+  padding-top: 1.4rem;
+}
+
+.explore-link {
+  background: transparent;
+  border: none;
+  color: var(--accent-gold-light);
+  font-size: 0.88rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  transition: transform 0.2s, color 0.2s;
+}
+
+.explore-link:hover {
+  color: #fff;
+  transform: translateX(4px);
+}
+
+/* Featured Kochi Panel */
+.featured-kochi-panel {
+  position: relative;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6), 0 0 0 1px rgba(255, 255, 255, 0.1);
+  display: flex;
+  align-items: flex-end;
+  min-height: 480px;
+}
+
+.kochi-img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.featured-kochi-panel:hover .kochi-img {
+  transform: scale(1.03);
+}
+
+.panel-gradient-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(8, 9, 11, 0.15) 0%, rgba(8, 9, 11, 0.88) 100%);
+  z-index: 1;
+}
+
+.panel-bottom-tag {
+  position: absolute;
+  bottom: 1.6rem;
+  right: 2rem;
+  font-size: 0.78rem;
+  color: rgba(255, 255, 255, 0.75);
+  font-style: italic;
+  z-index: 3;
+  text-shadow: 0 2px 6px rgba(0, 0, 0, 0.8);
+}
+
+.kochi-content-overlay {
+  position: relative;
+  z-index: 2;
+  padding: 3rem;
+  max-width: 580px;
+  display: flex;
+  flex-direction: column;
+  gap: 1.1rem;
+}
+
+.featured-eyebrow {
+  font-size: 0.72rem;
+  letter-spacing: 0.18em;
+  color: var(--accent-gold-light);
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.featured-main-heading {
+  font-size: clamp(1.4rem, 2.2vw, 2.1rem);
+  font-weight: 800;
+  line-height: 1.25;
+  color: #ffffff;
+  text-transform: uppercase;
+}
+
+.featured-desc {
+  font-size: 0.92rem;
+  color: #cfccc4;
+  line-height: 1.6;
+}
+
+.btn-outline-gold {
+  background: rgba(201, 168, 106, 0.12);
+  border: 1px solid rgba(201, 168, 106, 0.4);
+  color: var(--accent-gold-light);
+  padding: 0.75rem 1.6rem;
+  border-radius: 999px;
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  cursor: pointer;
+  width: fit-content;
+  transition: all 0.3s ease;
+}
+
+.btn-outline-gold:hover {
+  background: var(--accent-gold-gradient);
+  color: #0c0e11;
+  border-color: transparent;
+}
+
+/* ========================================================================= */
+/* 3. THREE-COLUMN BOTTOM ROW                                                */
+/* ========================================================================= */
+.blueprint-three-col {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2.2rem;
+}
+
+.three-col-card {
+  position: relative;
+  min-height: 480px;
+  border-radius: 18px;
+  overflow: hidden;
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.6), 0 0 0 1px rgba(255, 255, 255, 0.1);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 2.4rem;
+}
+
+.col-img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.8s ease;
+}
+
+.three-col-card:hover .col-img {
+  transform: scale(1.04);
+}
+
+.col-img.blur-bg {
+  filter: brightness(0.4) blur(1px);
+}
+
+.col-overlay-gradient {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(8, 9, 11, 0.1) 0%, rgba(8, 9, 11, 0.9) 100%);
+  z-index: 1;
+}
+
+.col-overlay-dark {
+  position: absolute;
+  inset: 0;
+  background: rgba(10, 12, 16, 0.88);
+  z-index: 1;
+}
+
+.col-tag-watermark {
+  position: absolute;
+  font-size: 0.82rem;
+  color: rgba(255, 255, 255, 0.7);
+  font-style: italic;
+  z-index: 3;
+  text-shadow: 0 2px 6px rgba(0, 0, 0, 0.8);
+}
+
+.tag-left {
+  bottom: 1.6rem;
+  left: 2.2rem;
+}
+
+.tag-right {
+  bottom: 1.6rem;
+  right: 2.2rem;
+}
+
+.col-text-content {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  gap: 0.9rem;
+}
+
+.col-category-tag {
+  font-size: 0.65rem;
+  letter-spacing: 0.18em;
+  color: var(--accent-gold-light);
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.col-heading {
+  font-size: 1.35rem;
+  font-weight: 800;
+  line-height: 1.3;
+  color: #ffffff;
+  text-transform: uppercase;
+}
+
+.col-sub {
+  font-size: 0.85rem;
+  color: #cfccc4;
+  line-height: 1.55;
+}
+
+/* Map Card Specifics */
+.kerala-map-interactive-box {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  height: 220px;
+  margin-bottom: 1rem;
+}
+
+.map-silhouette {
+  width: 100%;
+  height: 100%;
+}
+
+.kerala-svg {
+  width: 100%;
+  height: 100%;
+}
+
+.map-pin-group {
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.map-pin-group:hover circle {
+  fill: #E2C082;
+  r: 4.5;
+}
+
+.selected-hub-badge {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(14, 17, 23, 0.92);
+  border: 1px solid rgba(201, 168, 106, 0.35);
+  border-radius: 8px;
+  padding: 0.6rem 0.9rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  backdrop-filter: blur(10px);
+}
+
+.hub-label {
+  font-size: 0.58rem;
+  letter-spacing: 0.14em;
+  color: var(--text-muted);
+  font-weight: 700;
+}
+
+.hub-name {
+  font-size: 0.92rem;
+  color: var(--accent-gold-light);
+  font-weight: 700;
+}
+
+.hub-desc {
+  font-size: 0.7rem;
+  color: var(--text-secondary);
+}
+
+.btn-gold-sm {
+  background: var(--accent-gold-gradient);
+  border: none;
+  color: #0c0e11;
+  padding: 0.65rem 1.4rem;
+  border-radius: 999px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  cursor: pointer;
+  width: fit-content;
+  margin-top: 0.4rem;
+  transition: transform 0.2s;
+}
+
+.btn-gold-sm:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 16px rgba(201, 168, 106, 0.4);
+}
+
+/* ========================================================================= */
+/* RESPONSIVE LAYOUT                                                         */
+/* ========================================================================= */
+@media (max-width: 1200px) {
+  .blueprint-two-col {
+    grid-template-columns: 1fr;
+  }
+  .blueprint-three-col {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .kerala-blueprint-root {
+    padding: 5.5rem 1rem 3rem 1rem;
+    gap: 1.5rem;
+  }
+  .hero-content-overlay {
+    padding: 2.5rem 1.5rem;
+  }
+  .hero-grand-title {
+    font-size: 1.8rem;
+  }
+  .swatches-quad-grid {
+    grid-template-columns: 1fr;
+  }
+}

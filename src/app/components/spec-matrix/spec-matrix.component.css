@@ -1,0 +1,138 @@
+.spec-matrix-section {
+  width: 100%;
+  padding: 8rem 2.5rem;
+  background-color: #07080a;
+  border-top: 1px solid var(--border-hairline);
+}
+
+.matrix-container {
+  max-width: 1440px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+}
+
+.matrix-header {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+.header-flex-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.matrix-title {
+  font-size: clamp(2rem, 3.5vw, 3.2rem);
+  font-weight: 400;
+  color: #ffffff;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.matrix-lead {
+  font-size: 1.05rem;
+  color: var(--text-secondary);
+  max-width: 760px;
+  line-height: 1.65;
+  margin-top: 0.5rem;
+}
+
+/* Swiss Table */
+.matrix-table-wrapper {
+  width: 100%;
+  overflow-x: auto;
+  border: 1px solid var(--border-hairline);
+  background: rgba(12, 14, 18, 0.6);
+}
+
+.swiss-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+}
+
+.swiss-table th {
+  padding: 1.2rem 1.4rem;
+  background: rgba(20, 24, 30, 0.85);
+  color: var(--text-muted);
+  font-size: 0.7rem;
+  letter-spacing: 0.16em;
+  font-weight: 600;
+  border-bottom: 1px solid var(--border-hairline);
+  white-space: nowrap;
+}
+
+.swiss-table td {
+  padding: 1.3rem 1.4rem;
+  border-bottom: 1px solid var(--border-hairline);
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+}
+
+.swiss-table tr:hover td {
+  background: rgba(255, 255, 255, 0.02);
+}
+
+.row-code {
+  color: var(--accent-bronze-light);
+  font-weight: 600;
+  letter-spacing: 0.08em;
+}
+
+.row-disc {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+}
+
+.row-form strong {
+  color: #ffffff;
+  font-weight: 600;
+}
+
+.row-rate {
+  color: var(--accent-bronze-light);
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.table-sample-btn {
+  background: transparent;
+  border: 1px solid var(--border-medium);
+  color: var(--text-primary);
+  padding: 0.45rem 0.9rem;
+  font-size: 0.72rem;
+  font-family: var(--font-sans);
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  border-radius: 2px;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: all 0.2s;
+}
+
+.table-sample-btn:hover {
+  background: var(--accent-bronze);
+  border-color: var(--accent-bronze);
+  color: #08090a;
+}
+
+.table-footnote {
+  font-size: 0.72rem;
+  color: var(--text-muted);
+  line-height: 1.5;
+}
+
+@media (max-width: 1024px) {
+  .header-flex-row {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}

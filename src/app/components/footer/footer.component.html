@@ -1,0 +1,121 @@
+<footer class="footer-root">
+  <div class="footer-container">
+    <!-- Top Row -->
+    <div class="footer-main-grid">
+      <!-- Brand & Mission Column -->
+      <div class="footer-col brand-col">
+        <div class="brand-logo">
+          <span class="logo-symbol">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M12 2L2 7L12 12L22 7L12 2Z" stroke="#E2C082" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M2 17L12 22L22 17" stroke="#E2C082" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" opacity="0.8"/>
+              <path d="M2 12L12 17L22 12" stroke="#E2C082" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" opacity="0.5"/>
+            </svg>
+          </span>
+          <span class="brand-name font-serif">MARMORIS <span class="state-badge">KERALA</span></span>
+        </div>
+        <p class="brand-bio">
+          Kerala's premier artisanal surface company specializing in <strong>Marble Texture Painting</strong>, 
+          <strong>Cement Texture Painting</strong>, and <strong>Line Brush Painting</strong>. 
+          Engineered specifically for tropical climate durability, monsoon-proofing, and luxury architectural sanctuaries.
+        </p>
+        <div class="eco-badges">
+          <span class="eco-tag">&#10003; 100% Monsoon & Fungal Resistant</span>
+          <span class="eco-tag">&#10003; 0.0 VOC Eco-Certified for Tropical Homes</span>
+          <span class="eco-tag">&#10003; Authentic Carrara & Microcement Formulations</span>
+        </div>
+      </div>
+
+      <!-- Atelier Studios Column -->
+      <div class="footer-col">
+        <h4 class="col-heading font-serif">Kerala Experience Centers</h4>
+        <ul class="atelier-list">
+          <li>
+            <strong>Kochi Flagship Studio</strong>
+            <span>Main Avenue, Panampilly Nagar, Kochi 682036</span>
+          </li>
+          <li>
+            <strong>Calicut Design Salon</strong>
+            <span>Mavoor Road Architectural Corridor, Kozhikode 673004</span>
+          </li>
+          <li>
+            <strong>Trivandrum Atelier</strong>
+            <span>Near Raj Bhavan, Kowdiar, Thiruvananthapuram 695003</span>
+          </li>
+          <li>
+            <strong>Central Laboratory & Blending Unit</strong>
+            <span>Industrial Development Plot, Aluva, Ernakulam 683101</span>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Quick Navigation Column -->
+      <div class="footer-col">
+        <h4 class="col-heading font-serif">Architectural Solutions</h4>
+        <ul class="footer-links">
+          <li><a href="#hero-marble-canvas">Three Master Disciplines</a></li>
+          <li><a href="#textures-section">Marble &bull; Cement &bull; Line Brush</a></li>
+          <li><a href="#anatomy-section">Monsoon-Proof 4-Strata System</a></li>
+          <li><a href="#collection-section">Formulations Archive</a></li>
+          <li><a href="#lab-section">Interactive Texture Studio</a></li>
+          <li><a href="#spaces-section">Kerala Projects & Case Studies</a></li>
+        </ul>
+      </div>
+
+      <!-- Direct Contact & Helpline Column -->
+      <div class="footer-col">
+        <h4 class="col-heading font-serif">Consultation & Site Visits</h4>
+        <p class="newsletter-sub">Connect with our Kerala technical team for site measurements, applicator training, or bespoke swatch boxes.</p>
+
+        <div class="kerala-contact-card">
+          <div class="contact-line">
+            <span class="c-label">KERALA HELPLINE:</span>
+            <a href="tel:+919847082910" class="c-phone font-serif">+91 98470 82910</a>
+          </div>
+          <div class="contact-line">
+            <span class="c-label">KOCHI STUDIO DESK:</span>
+            <span class="c-val">+91 484 238 9012</span>
+          </div>
+          <div class="contact-line">
+            <span class="c-label">DIRECT EMAIL:</span>
+            <span class="c-val">kerala&#64;marmoris.in</span>
+          </div>
+        </div>
+
+        @if (!subscribed()) {
+          <form class="newsletter-form" (ngSubmit)="onSubscribe()">
+            <div class="news-input-wrap">
+              <input 
+                type="email" 
+                placeholder="architect@keralastudio.in" 
+                [(ngModel)]="emailInput" 
+                name="newsEmail"
+                required />
+              <button type="submit" class="news-submit-btn" aria-label="Subscribe to architectural dossier">&#8594;</button>
+            </div>
+          </form>
+        } @else {
+          <div class="subscribed-feedback">
+            <span class="feedback-icon">&#10003;</span>
+            <span>Subscribed to Kerala Architectural Journal.</span>
+          </div>
+        }
+
+        <button type="button" class="back-to-top-btn" (click)="scrollToTop()">
+          <span>Return to Top</span>
+          <span class="top-arrow">&#8593;</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Bottom Bar -->
+    <div class="footer-bottom-bar">
+      <span class="copyright">&copy; 2026 MARMORIS SURFACES KERALA PVT. LTD. ALL RIGHTS RESERVED.</span>
+      <div class="legal-links">
+        <a href="#">Indian Green Building Council (IGBC) Compliance</a>
+        <a href="#">Kerala Architectural Guild Specifications</a>
+        <a href="#">Privacy & Studio Terms</a>
+      </div>
+    </div>
+  </div>
+</footer>

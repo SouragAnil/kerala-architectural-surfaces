@@ -1,0 +1,67 @@
+<section class="intl-hero-section">
+  <!-- Full-Bleed Architectural Backdrop -->
+  <div class="hero-media-wrapper">
+    <img src="/assets/kerala_backwater_hero.jpg" alt="Kerala Architectural Surfaces Lakefront Sanctuary" class="hero-bg-media" />
+    <div class="hero-dark-scrim"></div>
+    <span class="geo-coord font-num">09°29'53" N &bull; 76°20'20" E / ALAPPUZHA BACKWATERS</span>
+  </div>
+
+  <!-- Editorial Text Overlay -->
+  <div class="hero-editorial-container">
+    <div class="hero-header-block">
+      <div class="editorial-kicker">
+        <span>ARCHITECTURAL MINERAL MONOGRAPH &bull; VOL. 30</span>
+      </div>
+
+      <h1 class="hero-monograph-title font-serif">
+        SURFACE AS ARCHITECTURE.
+      </h1>
+
+      <p class="hero-prose font-sans">
+        Pioneering master-troweled <strong>Liquid Marble Stucco</strong>, monolithic <strong>Architectural Microcement</strong>, 
+        and rhythmic <strong>Raked Line Brush Plaster</strong> for Kerala’s most distinguished residences, tropical retreats, and commercial landmarks since 1995.
+      </p>
+    </div>
+
+    <!-- The 3 Disciplines Minimalist Bar -->
+    <div class="disciplines-monograph-bar">
+      <div class="disc-column" (click)="scrollToChapter('chapter-marble')">
+        <span class="disc-num font-num">01 /</span>
+        <div class="disc-info">
+          <span class="disc-heading font-heading">LIQUID MARBLE</span>
+          <span class="disc-sub">Venetian Slaked Lime & Carrara Dust</span>
+        </div>
+        <span class="disc-arrow">&#8595;</span>
+      </div>
+
+      <div class="disc-column" (click)="scrollToChapter('chapter-cement')">
+        <span class="disc-num font-num">02 /</span>
+        <div class="disc-info">
+          <span class="disc-heading font-heading">RAW MICROCEMENT</span>
+          <span class="disc-sub">Monolithic Wall-to-Floor Concrete</span>
+        </div>
+        <span class="disc-arrow">&#8595;</span>
+      </div>
+
+      <div class="disc-column" (click)="scrollToChapter('chapter-line')">
+        <span class="disc-num font-num">03 /</span>
+        <div class="disc-info">
+          <span class="disc-heading font-heading">RAKED LINE BRUSH</span>
+          <span class="disc-sub">Directional Combed Plaster Corduroy</span>
+        </div>
+        <span class="disc-arrow">&#8595;</span>
+      </div>
+    </div>
+
+    <!-- Action Row -->
+    <div class="hero-actions-strip">
+      <button type="button" class="btn-intl-primary" (click)="cartService.openCart()">
+        <span>Commission Architectural Dossier</span>
+      </button>
+
+      <button type="button" class="btn-intl-ghost" (click)="scrollToChapter('light-studio')">
+        <span>Interactive Grazing Light Studio</span>
+      </button>
+    </div>
+  </div>
+</section>

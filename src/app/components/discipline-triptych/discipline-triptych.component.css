@@ -1,0 +1,218 @@
+.triptych-master-section {
+  width: 100%;
+  padding: 8rem 2.5rem;
+  background-color: #07080a;
+  border-top: 1px solid var(--border-hairline);
+}
+
+.triptych-container {
+  max-width: 1440px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 6rem;
+}
+
+.triptych-preamble {
+  max-width: 840px;
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+.preamble-heading {
+  font-size: clamp(2.4rem, 4.2vw, 3.8rem);
+  font-weight: 400;
+  line-height: 1.1;
+  color: #ffffff;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.preamble-lead {
+  font-size: 1.1rem;
+  color: var(--text-secondary);
+  line-height: 1.7;
+}
+
+/* Chapter Spreads Stack */
+.chapters-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 7rem;
+}
+
+.chapter-spread {
+  display: flex;
+  flex-direction: column;
+  gap: 2.2rem;
+  border-top: 1px solid var(--border-hairline);
+  padding-top: 3.5rem;
+}
+
+.chapter-meta-top {
+  display: grid;
+  grid-template-columns: 80px 1.4fr 1fr;
+  gap: 2.5rem;
+  align-items: baseline;
+}
+
+.chapter-number {
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: var(--accent-bronze-light);
+}
+
+.chapter-title-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.chapter-discipline-tag {
+  font-size: 0.72rem;
+  letter-spacing: 0.18em;
+  color: var(--text-muted);
+  text-transform: uppercase;
+}
+
+.chapter-main-title {
+  font-size: clamp(1.6rem, 2.4vw, 2.4rem);
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  color: #ffffff;
+}
+
+.chapter-quote {
+  font-size: 1.1rem;
+  font-style: italic;
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+/* Dual Imagery Spread */
+.chapter-imagery-spread {
+  display: grid;
+  grid-template-columns: 1.6fr 1fr;
+  gap: 2rem;
+  min-height: 520px;
+}
+
+.imagery-hero-frame,
+.imagery-macro-frame {
+  position: relative;
+  overflow: hidden;
+  border-radius: 2px;
+  background: #111418;
+  border: 1px solid var(--border-hairline);
+}
+
+.spread-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.chapter-spread:hover .spread-img {
+  transform: scale(1.02);
+}
+
+.frame-tag {
+  position: absolute;
+  bottom: 1.2rem;
+  left: 1.4rem;
+  font-size: 0.65rem;
+  letter-spacing: 0.18em;
+  color: rgba(255, 255, 255, 0.75);
+  background: rgba(8, 10, 12, 0.78);
+  padding: 0.35rem 0.75rem;
+  backdrop-filter: blur(10px);
+}
+
+/* Swiss Technical Specification Footer Bar */
+.chapter-spec-bar {
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr 0.8fr 1.2fr auto;
+  gap: 1.5rem;
+  padding: 1.6rem 2rem;
+  background: rgba(13, 15, 19, 0.7);
+  border: 1px solid var(--border-hairline);
+  align-items: center;
+}
+
+.spec-cell {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+
+.spec-label {
+  font-size: 0.65rem;
+  letter-spacing: 0.16em;
+  color: var(--text-muted);
+  font-weight: 600;
+}
+
+.spec-value {
+  font-size: 0.84rem;
+  color: var(--text-primary);
+  line-height: 1.45;
+}
+
+.btn-specimen-add {
+  background: transparent;
+  border: 1px solid var(--border-medium);
+  color: var(--text-primary);
+  padding: 0.65rem 1.4rem;
+  font-family: var(--font-sans);
+  font-size: 0.76rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  cursor: pointer;
+  border-radius: 2px;
+  white-space: nowrap;
+  transition: all 0.25s ease;
+}
+
+.btn-specimen-add:hover {
+  border-color: var(--accent-bronze);
+  color: var(--accent-bronze-light);
+  background: rgba(200, 173, 127, 0.1);
+}
+
+.btn-specimen-add.in-kit {
+  background: rgba(37, 120, 93, 0.2);
+  border-color: #25785d;
+  color: #6ee7b7;
+}
+
+@media (max-width: 1100px) {
+  .chapter-meta-top {
+    grid-template-columns: 1fr;
+    gap: 1.2rem;
+  }
+  .chapter-imagery-spread {
+    grid-template-columns: 1fr;
+    min-height: auto;
+  }
+  .imagery-hero-frame {
+    height: 380px;
+  }
+  .imagery-macro-frame {
+    height: 280px;
+  }
+  .chapter-spec-bar {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 640px) {
+  .triptych-master-section {
+    padding: 5rem 1.2rem;
+  }
+  .chapter-spec-bar {
+    grid-template-columns: 1fr;
+  }
+}

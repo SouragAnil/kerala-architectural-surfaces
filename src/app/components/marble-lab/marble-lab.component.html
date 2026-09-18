@@ -1,0 +1,169 @@
+<section class="lab-section" id="lab-section">
+  <div class="lab-container">
+    <div class="section-intro">
+      <div class="tag-pill tag-pill-emerald">
+        <span>INTERACTIVE TEXTURE STUDIO</span>
+      </div>
+      <h2 class="section-title font-serif">
+        THE ARTISANAL <span class="gold-text-shimmer">TEXTURE LAB</span>
+      </h2>
+      <p class="section-subtitle">
+        Directly experience the physical mechanics of <strong>Marble Texture Painting</strong>, 
+        <strong>Cement Texture Painting</strong>, and <strong>Line Brush Painting</strong>. Switch techniques below and drag across the surface.
+      </p>
+
+      <!-- Technique Mode Switcher -->
+      <div class="technique-switcher-bar">
+        <button 
+          type="button" 
+          class="tech-btn" 
+          [class.tech-active]="activeTechnique() === 'marble'"
+          (click)="setTechnique('marble')">
+          <span>🏛️ Marble Texture Painting</span>
+        </button>
+        <button 
+          type="button" 
+          class="tech-btn" 
+          [class.tech-active]="activeTechnique() === 'cement'"
+          (click)="setTechnique('cement')">
+          <span>🧱 Cement Texture Painting</span>
+        </button>
+        <button 
+          type="button" 
+          class="tech-btn" 
+          [class.tech-active]="activeTechnique() === 'line-brush'"
+          (click)="setTechnique('line-brush')">
+          <span>🖌️ Line Brush Painting</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Lab Canvas + Controls Layout -->
+    <div class="lab-stage-layout">
+      <!-- Live Interactive Canvas -->
+      <div class="canvas-viewport">
+        <canvas 
+          #labCanvas 
+          class="interactive-lab-canvas"
+          (pointerdown)="onPointerDown($event)"
+          (pointermove)="onPointerMove($event)"
+          (pointerup)="onPointerUp()"
+          (pointercancel)="onPointerUp()"></canvas>
+
+        <div class="canvas-hint">
+          <span class="hint-hand">&#9757;</span>
+          @if (activeTechnique() === 'marble') {
+            <span>DRAG TO SWIRL LIQUID MARBLE VEINS</span>
+          } @else if (activeTechnique() === 'cement') {
+            <span>DRAG TO SPREAD MICROCEMENT & POP AIR POCKETS</span>
+          } @else {
+            <span>DRAG TO COMB PARALLEL RAKED CORDUROY GROOVES</span>
+          }
+        </div>
+
+        <div class="canvas-active-tag">
+          <span class="active-dot" [style.background]="activeColor().hex"></span>
+          <span class="active-name font-serif">{{ activeColor().name }} &bull; {{ activeTechnique() | uppercase }}</span>
+        </div>
+      </div>
+
+      <!-- Controls Panel -->
+      <div class="lab-controls-panel glass-panel">
+        <h3 class="controls-title font-serif">
+          @if (activeTechnique() === 'marble') {
+            Liquid Marble Parameters
+          } @else if (activeTechnique() === 'cement') {
+            Cement Texture Parameters
+          } @else {
+            Line Brush Parameters
+          }
+        </h3>
+
+        <!-- Base Color Swatch Selector -->
+        <div class="control-group">
+          <label class="control-label">Mineral Substrate Base</label>
+          <div class="color-swatches-row">
+            @for (col of baseColors; track col.name) {
+              <button 
+                type="button" 
+                class="swatch-btn" 
+                [class.swatch-selected]="activeColor().name === col.name"
+                [style.background]="col.hex"
+                (click)="selectBaseColor(col)"
+                [title]="col.name">
+              </button>
+            }
+          </div>
+          <span class="color-chosen-label">{{ activeColor().name }}</span>
+        </div>
+
+        <!-- Density Slider -->
+        <div class="control-group">
+          <div class="slider-label-row">
+            <span class="control-label">
+              @if (activeTechnique() === 'marble') { Vein Frequency }
+              @else if (activeTechnique() === 'cement') { Aggregate Pitting Density }
+              @else { Comb Line Frequency }
+            </span>
+            <span class="slider-val">{{ textureDensity() }}%</span>
+          </div>
+          <input 
+            type="range" 
+            min="20" 
+            max="100" 
+            [value]="textureDensity()" 
+            (input)="setTextureDensity($event)" 
+            class="range-slider" />
+        </div>
+
+        <!-- Relief Depth Slider -->
+        <div class="control-group">
+          <div class="slider-label-row">
+            <span class="control-label">
+              @if (activeTechnique() === 'marble') { Vein Luminance }
+              @else if (activeTechnique() === 'cement') { Trowel Layer Depth }
+              @else { Tooth Groove Relief }
+            </span>
+            <span class="slider-val">{{ reliefDepth() }}%</span>
+          </div>
+          <input 
+            type="range" 
+            min="10" 
+            max="100" 
+            [value]="reliefDepth()" 
+            (input)="setReliefDepth($event)" 
+            class="range-slider" />
+        </div>
+
+        <!-- Technique Tool Guide Card -->
+        <div class="tool-guide-badge">
+          <span class="guide-tag">MASTER ARTISAN TOOL SPEC:</span>
+          @if (activeTechnique() === 'marble') {
+            <p class="guide-desc">Applied using flexible Japanese spring-steel spatulas with 24K gold leaf suspensions.</p>
+          } @else if (activeTechnique() === 'cement') {
+            <p class="guide-desc">Applied with magnesium concrete floats, sponge-stippled to create authentic board-cast pitting.</p>
+          } @else {
+            <p class="guide-desc">Raked with custom 4mm steel toothed comb brushes across wet hydraulic lime mortar.</p>
+          }
+        </div>
+
+        <!-- Lab Action Buttons -->
+        <div class="lab-actions">
+          <button type="button" class="btn-outline agitate-btn" (click)="agitateField()">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M21.5 2v6h-6M21.34 15.57a10 10 0 1 1-.57-8.38l5.67-5.67"/>
+            </svg>
+            <span>Reset Surface</span>
+          </button>
+
+          <button type="button" class="btn-gold download-btn" (click)="downloadSwatch()">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/>
+            </svg>
+            <span>Export Texture</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

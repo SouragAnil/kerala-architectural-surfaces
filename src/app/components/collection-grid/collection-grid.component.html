@@ -1,0 +1,185 @@
+<section class="collection-section" id="collection-section">
+  <div class="collection-container">
+    <div class="section-intro">
+      <div class="tag-pill">
+        <span>ARCHITECTURAL FORMULATION ARCHIVE</span>
+      </div>
+      <h2 class="section-title font-serif">
+        CURATED <span class="gold-text-shimmer">DISCIPLINES</span>
+      </h2>
+      <p class="section-subtitle">
+        Explore our formulations across <strong>Marble Texture Painting</strong>, <strong>Cement Texture Painting</strong>, 
+        and <strong>Line Brush Painting</strong>. Select a category below or order custom hand-troweled tile samples for your studio.
+      </p>
+
+      <!-- Category Filter Tabs -->
+      <div class="filter-tabs-bar">
+        <button 
+          type="button" 
+          class="filter-tab-btn" 
+          [class.tab-active]="activeFilter() === 'all'"
+          (click)="setFilter('all')">
+          All Disciplines ({{ cartService.finishes.length }})
+        </button>
+        <button 
+          type="button" 
+          class="filter-tab-btn" 
+          [class.tab-active]="activeFilter() === 'marble'"
+          (click)="setFilter('marble')">
+          Marble Texture Painting
+        </button>
+        <button 
+          type="button" 
+          class="filter-tab-btn" 
+          [class.tab-active]="activeFilter() === 'cement'"
+          (click)="setFilter('cement')">
+          Cement Texture Painting
+        </button>
+        <button 
+          type="button" 
+          class="filter-tab-btn" 
+          [class.tab-active]="activeFilter() === 'line-brush'"
+          (click)="setFilter('line-brush')">
+          Line Brush Painting
+        </button>
+      </div>
+    </div>
+
+    <!-- Cards Grid -->
+    <div class="marble-grid">
+      @for (item of filteredFinishes(); track item.id) {
+        <div 
+          class="marble-card" 
+          #cardEl
+          (mousemove)="onMouseMoveCard($event, cardEl)"
+          (mouseleave)="onMouseLeaveCard(cardEl)">
+          
+          <!-- Image and Sheen Overlay -->
+          <div class="card-visual">
+            <img [src]="item.image" [alt]="item.name" class="card-img" />
+            <div class="visual-gradient-mask"></div>
+            
+            <div class="card-top-tags">
+              <span class="discipline-tag-badge">{{ item.disciplineLabel }}</span>
+              <span class="purity-badge">{{ item.carraraDustPercent }}% Mineral</span>
+            </div>
+
+            <div class="selected-finish-display font-serif">
+              {{ selectedFinishPerCard()[item.id] || item.finishOptions[0] }}
+            </div>
+          </div>
+
+          <!-- Card Content Body -->
+          <div class="card-body">
+            <h3 class="card-name font-serif">{{ item.name }}</h3>
+            <p class="card-subtitle">{{ item.subtitle }}</p>
+            <p class="card-desc">{{ item.description }}</p>
+
+            <!-- Finish Variant Chips -->
+            <div class="finish-chips-row">
+              <span class="chips-label">SELECT TECHNIQUE / PROFILE:</span>
+              <div class="chips-list">
+                @for (opt of item.finishOptions; track opt) {
+                  <button 
+                    type="button" 
+                    class="chip-btn" 
+                    [class.chip-active]="(selectedFinishPerCard()[item.id] || item.finishOptions[0]) === opt"
+                    (click)="setFinishVariant(item.id, opt)">
+                    {{ opt }}
+                  </button>
+                }
+              </div>
+            </div>
+
+            <!-- Card Actions -->
+            <div class="card-actions-row">
+              <button 
+                type="button" 
+                class="sample-add-btn" 
+                [class.added]="cartService.isInCart(item.id)"
+                (click)="toggleSample(item)">
+                @if (cartService.isInCart(item.id)) {
+                  <span class="btn-icon">&#10003;</span>
+                  <span>In Sample Box</span>
+                } @else {
+                  <span class="btn-icon">+</span>
+                  <span>Add Sample Tile</span>
+                }
+              </button>
+
+              <button 
+                type="button" 
+                class="specs-btn" 
+                (click)="viewSpecs(item)"
+                title="View Technical Specification Sheet">
+                <span>Specs</span>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                  <polyline points="14 2 14 8 20 8"/>
+                  <line x1="16" y1="13" x2="8" y2="13"/>
+                  <line x1="16" y1="17" x2="8" y2="17"/>
+                </svg>
+              </button>
+            </div>
+          </div>
+        </div>
+      }
+    </div>
+  </div>
+
+  <!-- Tech Spec Modal -->
+  @if (activeSpecFinish(); as spec) {
+    <div class="spec-modal-backdrop" (click)="closeSpecs()">
+      <div class="spec-modal-dialog glass-panel" (click)="$event.stopPropagation()">
+        <div class="modal-head">
+          <div class="head-titles">
+            <span class="modal-tag">ARCHITECTURAL DATA SHEET &bull; {{ spec.disciplineLabel | uppercase }}</span>
+            <h3 class="modal-title font-serif">{{ spec.name }}</h3>
+          </div>
+          <button type="button" class="modal-close-btn" (click)="closeSpecs()">&times;</button>
+        </div>
+
+        <div class="modal-grid">
+          <div class="modal-row">
+            <span class="row-label">Discipline Category</span>
+            <span class="row-value">{{ spec.disciplineLabel }}</span>
+          </div>
+          <div class="modal-row">
+            <span class="row-label">Recommended Application Tool</span>
+            <span class="row-value">{{ spec.specDetails.applicationTool }}</span>
+          </div>
+          <div class="modal-row">
+            <span class="row-label">Base Suspension Resin</span>
+            <span class="row-value">{{ spec.specDetails.baseResin }}</span>
+          </div>
+          <div class="modal-row">
+            <span class="row-label">Sheen & Reflectance</span>
+            <span class="row-value">{{ spec.specDetails.sheenRating }}</span>
+          </div>
+          <div class="modal-row">
+            <span class="row-label">VOC Standard</span>
+            <span class="row-value">{{ spec.vocRating }}</span>
+          </div>
+          <div class="modal-row">
+            <span class="row-label">Veneer Thickness</span>
+            <span class="row-value">{{ spec.thicknessMm }}</span>
+          </div>
+          <div class="modal-row">
+            <span class="row-label">Drying & Recoat</span>
+            <span class="row-value">{{ spec.specDetails.dryingTime }}</span>
+          </div>
+          <div class="modal-row">
+            <span class="row-label">Coverage Per Kilogram</span>
+            <span class="row-value">{{ spec.specDetails.coveragePerKg }}</span>
+          </div>
+        </div>
+
+        <div class="modal-footer">
+          <button type="button" class="btn-gold" (click)="toggleSample(spec); closeSpecs()">
+            {{ cartService.isInCart(spec.id) ? 'Remove From Sample Box' : 'Add Sample Tile to Box' }}
+          </button>
+        </div>
+      </div>
+    </div>
+  }
+</section>

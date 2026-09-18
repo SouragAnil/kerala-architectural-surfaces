@@ -1,0 +1,111 @@
+<section class="hero-stage" #heroStage>
+  <!-- Background Canvas Frame Scrubber -->
+  <canvas #canvas class="marble-canvas" id="hero-marble-canvas"></canvas>
+
+  <div class="hero-overlay-content">
+    <!-- Card 1: Initial Grand Intro -->
+    <div class="narrative-card card-active" #card1>
+      <div class="tag-pill">
+        <span class="pulse-dot"></span>
+        <span>ATELIER OF ARTISANAL MINERAL WALL TEXTURES</span>
+      </div>
+
+      <h1 class="hero-title font-serif">
+        LIQUID STONE & <br/>
+        <span class="gold-text-shimmer">ARCHITECTURAL TEXTURES.</span>
+      </h1>
+
+      <div class="hero-disciplines-banner">
+        <span class="disc-item">&#10022; Marble Texture Painting</span>
+        <span class="disc-separator">&bull;</span>
+        <span class="disc-item">&#10022; Cement Texture Painting</span>
+        <span class="disc-separator">&bull;</span>
+        <span class="disc-item">&#10022; Line Brush Painting</span>
+      </div>
+
+      <p class="hero-lead">
+        Hand-crafted architectural finishes bridging liquid Carrara marble stuccos, 
+        raw brutalist microcement, and rhythmic line-brushed raked corduroy wall reliefs.
+      </p>
+
+      <div class="hero-cta-group">
+        <button type="button" class="btn-gold" id="hero-explore-btn" (click)="scrollToCollection()">
+          <span>Explore Formulations</span>
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M5 12h14M12 5l7 7-7 7"/>
+          </svg>
+        </button>
+
+        <button type="button" class="btn-outline" id="hero-lab-btn" (click)="openLab()">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+            <path d="M10 2v7.31M14 2v7.31M8.5 2h7M14 9.3a6.5 6.5 0 1 1-4 0"/>
+          </svg>
+          <span>Interactive Paint Lab</span>
+        </button>
+      </div>
+
+      <div class="hero-scroll-indicator">
+        <span class="mouse-icon">
+          <span class="mouse-wheel"></span>
+        </span>
+        <span class="scroll-label">SCROLL TO SCRUB THE LIQUID VEINS</span>
+      </div>
+    </div>
+
+    <!-- Card 2: Microscopic Vein Dynamics -->
+    <div class="narrative-card card-middle" #card2>
+      <div class="tag-pill tag-pill-emerald">
+        <span>PHASE II &bull; NATURAL SUSPENSION</span>
+      </div>
+
+      <h2 class="hero-subhead font-serif">
+        ORGANIC <span class="gold-text-shimmer">VEIN DYNAMICS</span>
+      </h2>
+
+      <p class="hero-lead">
+        Unlike flat printed wall coverings or synthetic wallpapers, Marmoris marble paints react to ambient room illumination. 
+        As natural daylight shifts, three-dimensional quartz facets and 24K gold mica leaf refract soft directional luminescence.
+      </p>
+
+      <div class="metrics-grid">
+        <div class="metric-item">
+          <span class="metric-num font-serif">98.4%</span>
+          <span class="metric-desc">Carrara Limestone Purity</span>
+        </div>
+        <div class="metric-item">
+          <span class="metric-num font-serif">0.0</span>
+          <span class="metric-desc">VOC Ultra-Pure Indoor Air</span>
+        </div>
+        <div class="metric-item">
+          <span class="metric-num font-serif">92 GU</span>
+          <span class="metric-desc">Specular Mirror Lustre</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Card 3: Cured Architectural Fruition -->
+    <div class="narrative-card card-end" #card3>
+      <div class="tag-pill">
+        <span>PHASE III &bull; THE CURED MASTERPIECE</span>
+      </div>
+
+      <h2 class="hero-subhead font-serif">
+        ARCHITECTURAL <span class="gold-text-shimmer">ETERNITY.</span>
+      </h2>
+
+      <p class="hero-lead">
+        Over 30 days of natural carbonation, Marmoris plaster breathes atmospheric CO₂, calcifying back into genuine solid limestone rock. 
+        It becomes permanent, washable, and inherently fire-resistant.
+      </p>
+
+      <div class="hero-cta-group">
+        <button type="button" class="btn-gold" (click)="cartService.openCart()">
+          <span>Order 3-Tile Sample Kit</span>
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <polyline points="20 6 9 17 4 12"></polyline>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </div>
+</section>

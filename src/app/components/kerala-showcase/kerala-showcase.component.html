@@ -1,0 +1,209 @@
+<!-- Master Architectural Grid matching the exact visual blueprint -->
+<section class="kerala-blueprint-root">
+
+  <!-- ========================================================================= -->
+  <!-- 1. HERO EXPANSIVE BANNER (Alappuzha Backwaters & Bookmatched Marble Wall) -->
+  <!-- ========================================================================= -->
+  <div class="blueprint-hero-card">
+    <div class="hero-bg-frame">
+      <img src="/assets/kerala_backwater_hero.jpg" alt="Alappuzha Backwaters Luxury Villa with Marble Wall" class="hero-bg-img" />
+      <div class="hero-vignette-gradient"></div>
+      <span class="location-watermark">Alappuzha backwaters backdrop</span>
+    </div>
+
+    <div class="hero-content-overlay">
+      <div class="hero-badge-tag">
+        <span>KERALA ARCHITECTURAL SURFACES &bull; ESTD 1995</span>
+      </div>
+
+      <h1 class="hero-grand-title font-sans">
+        PREMIER ARCHITECTURAL SURFACES FOR THE INSPIRED SPACES OF KERALA. Since 1995.
+      </h1>
+
+      <p class="hero-subtitle">
+        Exquisite Stones, Tiles, & Textures for Discerning Design. Specializing in 
+        <strong>Marble Texture Painting</strong>, <strong>Cement Texture Painting</strong>, and <strong>Line Brush Painting</strong>.
+      </p>
+
+      <div class="hero-action-buttons">
+        <button type="button" class="btn-gold" (click)="cartService.openCart()">
+          <span>Schedule Architectural Consultation</span>
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="5" y1="12" x2="19" y2="12"></line>
+            <polyline points="12 5 19 12 12 19"></polyline>
+          </svg>
+        </button>
+
+        <button type="button" class="btn-outline" (click)="scrollToSection('interactive-collections')">
+          <span>Explore Collections</span>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <polyline points="6 9 12 15 18 9"></polyline>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========================================================================= -->
+  <!-- 2. TWO-COLUMN ROW: Collections A-D & Featured Projects (Kochi)             -->
+  <!-- ========================================================================= -->
+  <div class="blueprint-two-col" id="interactive-collections">
+    
+    <!-- LEFT / TOP CARD: Explore Our Exclusive Collections (A, B, C, D) -->
+    <div class="exclusive-collections-panel glass-panel">
+      <div class="panel-header-strip">
+        <h2 class="panel-title font-sans">EXPLORE OUR EXCLUSIVE COLLECTIONS.</h2>
+        <span class="panel-sub-label">ARCHITECTURAL SWATCH DOSSIER</span>
+      </div>
+
+      <div class="swatches-quad-grid">
+        @for (item of swatches; track item.letter) {
+          <div class="swatch-quad-card">
+            <div class="swatch-img-box">
+              <img [src]="item.image" [alt]="item.name" class="quad-img" />
+              <span class="letter-badge font-serif">{{ item.letter }}</span>
+            </div>
+            <div class="swatch-meta">
+              <span class="swatch-title font-sans">{{ item.name }}</span>
+              <span class="swatch-spec">{{ item.spec }}</span>
+            </div>
+          </div>
+        }
+      </div>
+
+      <div class="collections-action-bar">
+        <button type="button" class="explore-link font-sans" (click)="cartService.openCart()">
+          <span>EXPLORE OUR EXCLUSIVE COLLECTIONS.</span>
+          <span class="arrow-glyph">&#8594;</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- RIGHT / TOP CARD: Featured Projects (Kochi Commercial Atrium) -->
+    <div class="featured-kochi-panel">
+      <img src="/assets/commercial_kochi_atrium.jpg" alt="Commercial Project: Kochi with Living Green Wall" class="kochi-img" />
+      <div class="panel-gradient-overlay"></div>
+      <span class="panel-bottom-tag">Commercial project: Kochi</span>
+
+      <div class="kochi-content-overlay">
+        <div class="featured-eyebrow">
+          <span>FEATURED PROJECTS: CRAFTING ICONIC LANDMARKS ACROSS KERALA.</span>
+        </div>
+        <h3 class="featured-main-heading font-sans">
+          THE KERALA COLLECTION: CRAFTING ICONIC LANDMARKS ACROSS KERALA.
+        </h3>
+        <p class="featured-desc">
+          Double-height corporate headquarters in Marine Drive, Kochi, featuring monolithic dark granite-sheen floor finishes paired with a 3-storey vertical living bio-wall.
+        </p>
+        <button type="button" class="btn-outline-gold" (click)="scrollToSection('spaces-section')">
+          <span>View Landmark Portfolio</span>
+        </button>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- ========================================================================= -->
+  <!-- 3. BOTTOM ROW: 3 Distinct Architectural Panels (Munnar, Workshop, Tvpm Map) -->
+  <!-- ========================================================================= -->
+  <div class="blueprint-three-col">
+
+    <!-- Panel 1: Munnar (Hospitality Stone & Tradition) -->
+    <div class="three-col-card munnar-card">
+      <img src="/assets/nero_marquina_wall.jpg" alt="Munnar Hospitality Interior with Stone Texture" class="col-img" />
+      <div class="col-overlay-gradient"></div>
+      <span class="col-tag-watermark tag-left">Munnar</span>
+
+      <div class="col-text-content">
+        <span class="col-category-tag">HOSPITALITY ARCHITECTURE</span>
+        <h3 class="col-heading font-sans">
+          THE KERALA COLLECTION: WHERE TRADITION MEETS INNOVATION.
+        </h3>
+        <p class="col-sub">
+          Highland stone stucco, smoked basalt cement, and natural timber craftsmanship in Munnar hill retreats.
+        </p>
+      </div>
+    </div>
+
+    <!-- Panel 2: State-of-the-Art Workshop (Craftsmanship in Every Slab) -->
+    <div class="three-col-card workshop-card">
+      <img src="/assets/artisan_trowel.jpg" alt="Artisan Craftsmanship in State-of-the-Art Workshop" class="col-img" />
+      <div class="col-overlay-gradient"></div>
+      <span class="col-tag-watermark tag-right">State-of-the-art workshop</span>
+
+      <div class="col-text-content">
+        <span class="col-category-tag">PRECISION ENGINEERING</span>
+        <h3 class="col-heading font-sans">
+          PRECISION & CRAFTSMANSHIP IN EVERY SLAB. OUR EXPERTISE, YOUR VISION.
+        </h3>
+        <p class="col-sub">
+          Continuous quality inspection, manual diamond burnishing, and bespoke formulation at our Aluva central mixing atelier.
+        </p>
+      </div>
+    </div>
+
+    <!-- Panel 3: Thiruvananthapuram (Partner with Kerala's Finest + Map) -->
+    <div class="three-col-card map-hub-card">
+      <img src="/assets/calicut_linebrush_courtyard.jpg" alt="Thiruvananthapuram Architectural Studio" class="col-img blur-bg" />
+      <div class="col-overlay-dark"></div>
+      <span class="col-tag-watermark tag-left">Thiruvananthapuram</span>
+
+      <!-- Interactive Kerala Architectural Map Graphic -->
+      <div class="kerala-map-interactive-box">
+        <div class="map-silhouette">
+          <svg viewBox="0 0 100 100" class="kerala-svg" preserveAspectRatio="xMidYMid meet">
+            <!-- Stylized Kerala State Coastal Contour -->
+            <path d="M30 10 C35 15, 38 24, 42 32 C45 38, 48 48, 52 58 C55 68, 62 76, 70 85 C75 90, 78 95, 82 98 L86 96 C82 88, 76 78, 70 65 C64 52, 58 40, 52 28 C46 18, 40 10, 30 10 Z" 
+                  fill="rgba(201, 168, 106, 0.22)" 
+                  stroke="#E2C082" 
+                  stroke-width="1.5" />
+            
+            <!-- Radiating Signal Waves from Central Kochi Hub -->
+            <circle cx="53" cy="56" r="14" fill="none" stroke="rgba(226, 192, 130, 0.4)" stroke-width="0.8" stroke-dasharray="2,2"/>
+            <circle cx="53" cy="56" r="26" fill="none" stroke="rgba(226, 192, 130, 0.2)" stroke-width="0.6"/>
+
+            <!-- Kerala Key Hub Pins -->
+            @for (loc of keralaLocations; track loc.name) {
+              <g class="map-pin-group" (click)="selectLocation(loc)">
+                <circle 
+                  [attr.cx]="loc.coords.x" 
+                  [attr.cy]="loc.coords.y" 
+                  r="3.2" 
+                  [attr.fill]="activeLocation().name === loc.name ? '#E2C082' : '#FFFFFF'" 
+                  stroke="#0E1013" 
+                  stroke-width="1" />
+                <text 
+                  [attr.x]="loc.coords.x + 4" 
+                  [attr.y]="loc.coords.y + 1.5" 
+                  fill="#EBE7DF" 
+                  font-size="3.4" 
+                  font-family="'Plus Jakarta Sans', sans-serif" 
+                  font-weight="600">
+                  {{ loc.name }}
+                </text>
+              </g>
+            }
+          </svg>
+        </div>
+
+        <div class="selected-hub-badge">
+          <span class="hub-label">ACTIVE STUDIO:</span>
+          <span class="hub-name font-sans">{{ activeLocation().name }}</span>
+          <span class="hub-desc">{{ activeLocation().region }} &bull; {{ activeLocation().type }}</span>
+        </div>
+      </div>
+
+      <div class="col-text-content">
+        <span class="col-category-tag">STATEWIDE CONSULTATION NETWORK</span>
+        <h3 class="col-heading font-sans">
+          PARTNER WITH KERALA'S FINEST. VISUALIZE YOUR NEXT PROJECT WITH US.
+        </h3>
+        <button type="button" class="btn-gold-sm" (click)="cartService.openCart()">
+          <span>Request Site Assessment</span>
+        </button>
+      </div>
+    </div>
+
+  </div>
+
+</section>

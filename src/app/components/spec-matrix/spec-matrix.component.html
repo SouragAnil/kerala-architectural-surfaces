@@ -1,0 +1,65 @@
+<section class="spec-matrix-section" id="spec-matrix">
+  <div class="matrix-container">
+    <div class="matrix-header">
+      <div class="editorial-kicker">
+        <span>ARCHITECTURAL SCHEDULE &bull; SECTION 09 25 00</span>
+      </div>
+      <div class="header-flex-row">
+        <div>
+          <h2 class="matrix-title font-serif">TECHNICAL DATA & SPECIFICATION MATRIX.</h2>
+          <p class="matrix-lead font-sans">
+            Strict compliance with Indian Green Building Council (IGBC) standards and European EN 15824 mineral plaster regulations. 
+            All surface rates include master artisan trowel application across Kerala.
+          </p>
+        </div>
+        <button type="button" class="btn-intl-ghost" (click)="downloadDossier()">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/>
+          </svg>
+          <span>Export Master Specification PDF</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Table -->
+    <div class="matrix-table-wrapper">
+      <table class="swiss-table">
+        <thead>
+          <tr>
+            <th class="font-num">CODE</th>
+            <th>DISCIPLINE</th>
+            <th>MINERAL FORMULATION</th>
+            <th>BINDER SYSTEM</th>
+            <th class="font-num">SHEEN (GU)</th>
+            <th class="font-num">STRENGTH</th>
+            <th>TROPICAL / MONSOON STANDARD</th>
+            <th class="font-num">ESTIMATED RATE*</th>
+            <th>ACTION</th>
+          </tr>
+        </thead>
+        <tbody>
+          @for (row of rows; track row.code) {
+            <tr>
+              <td class="font-num row-code">{{ row.code }}</td>
+              <td class="row-disc">{{ row.discipline }}</td>
+              <td class="row-form font-sans"><strong>{{ row.formulation }}</strong></td>
+              <td class="row-binder">{{ row.binder }}</td>
+              <td class="font-num row-sheen">{{ row.sheen }}</td>
+              <td class="font-num row-str">{{ row.strength }}</td>
+              <td class="row-monsoon">{{ row.monsoonProofing }}</td>
+              <td class="font-num row-rate">{{ row.approxRate }}</td>
+              <td>
+                <button type="button" class="table-sample-btn" (click)="cartService.openCart()">
+                  Sample Kit
+                </button>
+              </td>
+            </tr>
+          }
+        </tbody>
+      </table>
+    </div>
+    <span class="table-footnote font-num">
+      *Rates are indicative per square foot for project volumes &gt; 1,000 sq.ft across Ernakulam, Kozhikode, and Thiruvananthapuram, inclusive of substrate priming and carnauba wax vitrification.
+    </span>
+  </div>
+</section>
