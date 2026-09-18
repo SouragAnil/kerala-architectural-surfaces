@@ -23,10 +23,10 @@ interface CaseComparison {
       <div class="site-container-fluid">
         <!-- Section Header -->
         <div class="section-intro">
-          <span class="human-pill">Tangible Transformation</span>
+          <span class="human-pill">1:1 Matched Space Transformation</span>
           <h2 class="section-title font-serif">Before & After Handcrafting</h2>
           <p class="section-subtitle">
-            See how ordinary bare walls in Kerala villas are transformed into architectural showstoppers by our master finishers. Drag or touch the slider to reveal the difference.
+            See the exact same room before and after our artisans apply the finish. Drag the central handle to reveal the transformation from raw unpainted substrate to finished artisanal texture.
           </p>
 
           <!-- Case Tabs -->
@@ -44,8 +44,12 @@ interface CaseComparison {
 
         <!-- Full-Width Expansive Cinematic Slider Container -->
         <div class="slider-wrapper">
-          <div class="comparison-container" (mousemove)="onMouseMove($event)" (touchmove)="onTouchMove($event)">
-            <!-- After Image (Full background) -->
+          <div 
+            class="comparison-container" 
+            (mousemove)="onMouseMove($event)" 
+            (touchmove)="onTouchMove($event)"
+          >
+            <!-- After Image (Underneath, full 100% matching dimension) -->
             <img 
               [src]="activeCase().afterImage" 
               [alt]="activeCase().afterLabel" 
@@ -53,15 +57,14 @@ interface CaseComparison {
             />
             <span class="img-badge after-badge">{{ activeCase().afterLabel }}</span>
 
-            <!-- Before Image (Clipped container) -->
-            <div class="before-layer" [style.width.%]="sliderPosition()">
-              <img 
-                [src]="activeCase().beforeImage" 
-                [alt]="activeCase().beforeLabel" 
-                class="comp-img before-img"
-              />
-              <span class="img-badge before-badge">{{ activeCase().beforeLabel }}</span>
-            </div>
+            <!-- Before Image (Overlayed, clipped with 100% pixel-perfect matching alignment) -->
+            <img 
+              [src]="activeCase().beforeImage" 
+              [alt]="activeCase().beforeLabel" 
+              class="comp-img before-img"
+              [style.clip-path]="'inset(0 ' + (100 - sliderPosition()) + '% 0 0)'"
+            />
+            <span class="img-badge before-badge">{{ activeCase().beforeLabel }}</span>
 
             <!-- Drag Handle Divider Line -->
             <div class="drag-handle" [style.left.%]="sliderPosition()">
@@ -191,34 +194,24 @@ interface CaseComparison {
       width: 100%;
       height: 100%;
       object-fit: cover;
+      object-position: center;
       pointer-events: none;
     }
 
-    .before-layer {
-      position: absolute;
-      top: 0;
-      left: 0;
-      height: 100%;
-      overflow: hidden;
-      z-index: 2;
-    }
     .before-img {
-      width: 100vw;
-      max-width: 1840px;
-      height: 100%;
-      object-fit: cover;
+      z-index: 2;
     }
 
     .img-badge {
       position: absolute;
       top: clamp(0.75rem, 2vw, 1.25rem);
-      padding: 0.35rem clamp(0.6rem, 1vw, 0.85rem);
+      padding: 0.4rem clamp(0.65rem, 1.2vw, 0.95rem);
       font-size: clamp(0.68rem, 1vw, 0.76rem);
       font-weight: 700;
       letter-spacing: 0.06em;
       text-transform: uppercase;
       border-radius: 4px;
-      z-index: 5;
+      z-index: 6;
       white-space: nowrap;
     }
     .before-badge {
@@ -335,11 +328,11 @@ export class HumanBeforeAfterComponent {
       title: 'Marine Drive Penthouse: Marble Stucco',
       location: 'Marine Drive, Kochi • Living Room Feature Wall',
       finishType: 'Bare Plaster to Italian Carrara Marble Stucco',
-      beforeLabel: 'Before: Plain Cement Plaster',
+      beforeLabel: 'Before: Raw Cement Plaster',
       afterLabel: 'After: Hand-Burnished Carrara Stucco',
-      beforeImage: '/assets/artisan_trowel.jpg',
+      beforeImage: '/assets/kochi_penthouse_marble_before.jpg',
       afterImage: '/assets/kochi_penthouse_marble.jpg',
-      description: 'The client wanted the gravitas of a massive Italian Carrara slab without structural weight constraints. Our artisans applied 3 coats of micronized marble stucco, followed by diamond hand-burnishing and carnauba wax seal.',
+      description: 'Watch the transformation of this Marine Drive penthouse living room: from raw, unfinished grey cement plaster to 3 coats of micronized Italian Carrara marble stucco, diamond hand-burnishing, and beeswax protective seal.',
       timeTaken: '4 Days (180 sq.ft wall)'
     },
     {
@@ -347,11 +340,11 @@ export class HumanBeforeAfterComponent {
       title: 'Calicut Courtyard: Line Brush Corduroy',
       location: 'Mavoor Road, Kozhikode • Double Height Courtyard Wall',
       finishType: 'Plain Putty to Artisanal Line Brush Painting',
-      beforeLabel: 'Before: Dull Flat Emulsion',
-      afterLabel: 'After: Combed Corduroy Texture',
-      beforeImage: '/assets/line_brush_macro.jpg',
+      beforeLabel: 'Before: Flat Untextured Plaster',
+      afterLabel: 'After: Artisanal Corduroy Line Brush',
+      beforeImage: '/assets/calicut_linebrush_courtyard_before.jpg',
       afterImage: '/assets/calicut_linebrush_courtyard.jpg',
-      description: 'The courtyard had harsh vertical midday sunlight. We executed vertical corduroy line-brush raking, creating subtle organic micro-shadows that cool the optical temperature of the space and add tactile richness.',
+      description: 'In this traditional courtyard home, dragging the slider reveals how a flat, dull plaster wall was sculpted with hand-raked vertical corduroy striations that catch tropical sunlight with organic shadow relief.',
       timeTaken: '5 Days (310 sq.ft wall)'
     },
     {
@@ -359,11 +352,11 @@ export class HumanBeforeAfterComponent {
       title: 'Aluva Riverfront Villa: Microcement',
       location: 'Periyar Riverbank, Aluva • Open Veranda & Lounge',
       finishType: 'Rough Concrete to Seamless Architectural Microcement',
-      beforeLabel: 'Before: Damp-Prone Concrete',
+      beforeLabel: 'Before: Raw Construction Concrete',
       afterLabel: 'After: Seamless Waterproof Microcement',
-      beforeImage: '/assets/cement_wall.jpg',
+      beforeImage: '/assets/kerala_tropical_villa_before.jpg',
       afterImage: '/assets/kerala_tropical_villa.jpg',
-      description: 'Located right along the river with 90%+ year-round moisture. Traditional paint peeled annually. Our 4-layer microcement system with polyurethane seal provides 100% moisture resistance and a warm sandstone patina.',
+      description: 'This Periyar riverbank residence faced severe monsoon moisture. The slider reveals the exact space before (chalky raw concrete prone to dampness) and after (seamless, waterproof architectural microcement with warm ambient reflection).',
       timeTaken: '6 Days (420 sq.ft area)'
     }
   ];
