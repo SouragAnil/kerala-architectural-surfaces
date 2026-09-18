@@ -1,59 +1,97 @@
-# Marmoris
+# Kerala Architectural Surfaces (KAS)
+### Artisanal Wall Finishes, Venetian Plaster & Architectural Microcement
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 22.1.8.
+[![Angular](https://img.shields.io/badge/Angular-22-DD0031.svg?style=flat&logo=angular)](https://angular.dev/)
+[![TypeScript](https://img.shields.io/badge/TypeScript-5.9-3178C6.svg?style=flat&logo=typescript)](https://www.typescriptlang.org/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 
-## Development server
+An authentic, human-designed luxury architectural surface atelier platform engineered for high-end residences and commercial spaces across **Kerala, India** (Kochi, Kozhikode, and Thiruvananthapuram). 
 
-To start a local development server, run:
+Crafted with warm mineral tones, responsive full-screen layouts, and tactile interactivity inspired by prestigious international studios (*Novacolor Italy*, *Armourcoat UK*, and *Clayworks*).
 
-```bash
-ng serve
-```
+---
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+## 🏛️ The Three Architectural Disciplines
 
-## Code scaffolding
+1. **Marble Texture Painting (Italian Venetian Stucco)**
+   - Formulated with aged Italian slaked lime and 98% pure micronized Carrara calcite stone dust.
+   - Applied in 3 to 4 paper-thin layers with stainless steel spatulas and burnished to an authentic, breathable stone sheen.
+   - Popular finishes: *Carrara Pure Mist*, *Nero Marquina Gold*, *Emerald Onyx Translucent*.
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+2. **Cement Texture Painting (Seamless Architectural Microcement)**
+   - High-strength hydraulic binders, quartz silicates, and flexible polymers.
+   - 100% waterproof, joint-free, and sealed with an aliphatic polyurethane barrier engineered specifically to withstand Kerala's 95% monsoon humidity without peeling or efflorescence.
+   - Popular finishes: *Soft Sandstone Greige*, *Brutalist Raw Pitted*, *Smoked Mineral Charcoal*.
 
-```bash
-ng generate component component-name
-```
+3. **Line Brush Painting (Artisanal Raked Corduroy Relief)**
+   - Executed using custom steel rakes and horsehair dragging brushes across wet mineral plaster.
+   - 3-dimensional vertical combed grooves that cast soft, organic micro-shadows under natural sunlight and evening accent spotlights.
+   - Popular finishes: *Vertical Corduroy White*, *Raked Sand Warm Ochre*, *Charcoal Accordion Flute*.
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+---
 
-```bash
-ng generate --help
-```
+## ✨ Key Features & Architectural UX
 
-## Building
+- **Expansive Full-Screen & Ultra-Wide Design**: Seamless responsive scaling across 4K displays, laptops, tablets, and smartphones.
+- **Interactive Before & After Drag Slider**: High-resolution reveal demonstrating bare cement block/plaster transformed into hand-burnished Carrara marble or corduroy raked plaster.
+- **Transparent Wall Cost Calculator**: Interactive square-footage estimator with instant itemized breakdowns (authentic mineral formulations vs. certified master artisan labour).
+- **Kerala Project Monograph**: Verified project showcases across Marine Drive (Kochi), Mavoor Road (Calicut), Vembanad Lake (Alappuzha), and Periyar Riverbank (Aluva).
+- **Physical Experience Centers**: Real showroom addresses in **Panampilly Nagar, Kochi**, **Mavoor Road, Calicut**, and **Kowdiar, Trivandrum** with direct WhatsApp helpline integration (`+91 98470 82910`).
+- **3-Specimen Physical Sample Box**: Orderable curated walnut box presentation kit for architects and homeowners.
 
-To build the project run:
+---
 
-```bash
-ng build
-```
+## 🛠️ Technology Stack
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+- **Framework**: Angular 22 (Standalone Components & Signals)
+- **Styling**: Vanilla CSS Architecture with fluid `clamp()` responsive design tokens
+- **Smooth Scrolling**: Lenis Smooth Scroll integrated with GSAP ScrollTrigger
+- **Typography**: Google Fonts (*Playfair Display* & *Plus Jakarta Sans*)
 
-## Running unit tests
+---
 
-To execute unit tests with the [Vitest](https://vitest.dev/) test runner, use the following command:
+## 🚀 Getting Started
 
-```bash
-ng test
-```
+### Prerequisites
+- Node.js (v20 or newer recommended)
+- npm (v10 or newer)
 
-## Running end-to-end tests
+### Installation & Run
 
-For end-to-end (e2e) testing, run:
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/SouragAnil/kerala-architectural-surfaces.git
+   cd kerala-architectural-surfaces
+   ```
 
-```bash
-ng e2e
-```
+2. Install dependencies:
+   ```bash
+   npm install
+   ```
 
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
+3. Start development server:
+   ```bash
+   npm start
+   ```
+   Open your browser and navigate to `http://localhost:4200`.
 
-## Additional Resources
+4. Build production bundle:
+   ```bash
+   npm run build
+   ```
 
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+---
+
+## 📍 Locations & Inquiries
+
+- **Kochi Experience Center**: 3rd Floor, Panampilly Nagar Main Avenue, Ernakulam, Kerala 682036
+- **Calicut Design Studio**: 2nd Floor, Mavoor Road, Arayidathupalam, Kozhikode, Kerala 673004
+- **Trivandrum Atelier**: Near Raj Bhavan, Kowdiar, Thiruvananthapuram, Kerala 695003
+- **Helpline**: `+91 98470 82910`
+- **Email**: `info@keralaarchitecturalsurfaces.com`
+
+---
+
+## 📄 License
+
+MIT License &copy; 2026 Kerala Architectural Surfaces.
